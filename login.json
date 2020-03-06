@@ -1,0 +1,12 @@
+[
+    {
+      "path":"com.gym.Bean",
+      "root":"src\\main\\java",
+      "pojo":{
+              "loginRequestBean":{"mobileNo":"","appId":""},
+              "loginResponceBean":{"status":"int","msg":"","data":""},
+              "otpRequest":{"otp":"","mobileNo":"","appId":""},
+              "otpResponse":{"status":"int","msg":"","tokenId":""}
+         }
+    }
+] 
