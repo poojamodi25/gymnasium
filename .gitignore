@@ -3,3 +3,4 @@ config.json
 /target/*
 target/*
 target\*
+\target
