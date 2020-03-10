@@ -1,6 +1,7 @@
 package com.gym.controller;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,9 +53,17 @@ LoginDetailRepo loginRepo ;
 	     return res; 
 	  }
 	
-	/*
-	 * @RequestMapping(value="/submitOtp",method=RequestMethod.POST) public String
-	 * submit(@RequestBody OtpRequest otp) { LoginDetail ld=loginRepo. return ""; }
-	 */
+	
+	  @RequestMapping(value="/submitOtp",method=RequestMethod.POST) 
+	  public String submit(@RequestBody OtpRequest otp) {
+		  List<LoginDetail> ld= loginRepo.findByMobileNumber(otp.getMobileNo(), otp.getAppId());
+		 // OtpResponce res=new OtpResponce();
+		  if(ld.size()==1)
+		  {}
+		  else
+		  {}
+				  return ""; 
+		  }
+	 
 	
 }
