@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gym.Bean.LoginRequestBean;
-import com.gym.Bean.LoginResponceBean;
+import com.gym.Bean.LoginResponseBean;
 import com.gym.Bean.OtpRequest;
 import com.gym.Bean.OtpResponse;
 import com.gym.model.gimnasium.LoginDetail;
@@ -26,8 +26,16 @@ public class AuthServicesController {
 @Autowired
 LoginDetailRepo loginRepo ;
 	@SuppressWarnings("deprecation")
+	@RequestMapping(value = "Auth/login",method=RequestMethod.GET) 
+	public String userlogin() {
+	  return "login sucess";	
+	}
+	@RequestMapping(value = "Auth/signup",method=RequestMethod.GET) 
+	public String signup() {
+	  return "login sucess";	
+	}
 	@RequestMapping(value = "/RequestOtp",method=RequestMethod.POST) 
-    public LoginResponceBean loginPage(@RequestBody LoginRequestBean login) 
+    public LoginResponseBean loginPage(@RequestBody LoginRequestBean login) 
 	  {
 	     Pageable pageable = PageRequest.of(0, 1);
 	     List<LoginDetail> logins= loginRepo.getOtpWithinFiveMints(login.getMobileNo(), login.getAppId(), pageable);
@@ -49,7 +57,7 @@ LoginDetailRepo loginRepo ;
 				loginRepo.save(detail);
 
 		 }
-		LoginResponceBean res=new LoginResponceBean();
+		LoginResponseBean res=new LoginResponseBean();
 
 		System.out.println(otp);
 		boolean flag = SmsUtility.sendSms(login.getMobileNo(), otp);
@@ -95,5 +103,6 @@ LoginDetailRepo loginRepo ;
 		  return res; 
 		  }
 	 
+	  
 	
 }

@@ -2,7 +2,7 @@
 package com.gym.Bean;
 
 
- public class LoginResponceBean{
+ public class LoginResponseBean{
  private int status;
  private String msg;
  private String data;
